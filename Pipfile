@@ -7,6 +7,7 @@ name = "pypi"
 fastapi = "==0.110.3"
 pdf2docx = "==0.5.8"
 uvicorn = {extras = ["standard"], version = "==0.29.0"}
+python-multipart = "==0.0.9"
 
 [dev-packages]
 
