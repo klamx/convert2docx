@@ -30,29 +30,6 @@ async def createPdf(file):
     return file_path
 
 
-@pdf2docx_router.get("/convert")
-async def pdftodocx(pdf: str, docx: str):
-    if not os.path.exists(pdf):
-        raise HTTPException(status_code=500, detail="Ruta no encontrada")
-
-    try:
-        convert(pdf, docx)
-    except:
-        raise HTTPException(status_code=500, detail="No se pudo crear el docx")
-
-    return FileResponse(
-        docx,
-        media_type="application/vnd.openxmlformats-officedocument.wordprocessingml.document",
-        filename=docx,
-    )
-
-
-@pdf2docx_router.post("/upload")
-async def upload(file: UploadFile = File()):
-    file_path = await createPdf(file)
-    return {"filename": file.filename, "saved_path": str(file_path)}
-
-
 @pdf2docx_router.post("/")
 async def upload_and_convert(docxname: str = Form(...), file: UploadFile = File()):
     file_path = await createPdf(file)
