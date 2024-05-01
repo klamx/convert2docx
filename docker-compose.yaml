@@ -1,0 +1,12 @@
+version: '3.7'
+
+services:
+  pdf2docx:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: pdf2docx-docker
+    container_name: pdf2docx
+    restart: always
+    ports:
+      - 3000:3000
