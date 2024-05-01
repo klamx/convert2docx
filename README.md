@@ -4,7 +4,7 @@ API para convertir un pdf a docx
 
 ## Requisitos
 - Python 3.10 o superior
-- venv
+- venv (**solo si se va a ejecutar en un entorno virtual**)
 
 ## Instalación
 
@@ -34,7 +34,7 @@ python3 -m venv venv
 source ./venv/bin/activate
 ```
 
-2. Verificar que estemos en el entorno de desarrollo
+2. Verificar que se este ejecutando el entorno de desarrollo
 ```bash
 # Este comando no debe devolver nada
 pip3 freeze
@@ -55,3 +55,6 @@ uvicorn src.main:app --host 0.0.0.0 --port 3000
 ```
 
 5. Visualiza en tu navegador [http://localhost:3000/docs](http://localhost:3000/docs).
+
+## Stack usado
+- FastAPI
