@@ -13,7 +13,18 @@ API para convertir un pdf a docx
 git clone https://github.com/klamx/convert2docx.git
 ```
 
-2. Crea el entorno de desarrollo
+### Dockerizacion
+1. Docker
+```bash
+cd convert2docx
+docker compose build
+docker compose up -d
+```
+
+2. Visualiza en tu navegador [http://localhost:3000/docs](http://localhost:3000/docs).
+
+### Entorno virtual
+1. Crea el entorno de desarrollo
 ```bash
 cd convert2docx
 python -m venv venv
@@ -23,7 +34,7 @@ python3 -m venv venv
 source ./venv/bin/activate
 ```
 
-3. Verificar que estemos en el entorno de desarrollo
+2. Verificar que estemos en el entorno de desarrollo
 ```bash
 # Este comando no debe devolver nada
 pip3 freeze
