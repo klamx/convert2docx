@@ -4,6 +4,7 @@ API para convertir un pdf a docx
 
 ## Requisitos
 - Python 3.10 o superior
+- venv
 
 ## Instalación
 
@@ -15,18 +16,31 @@ git clone https://github.com/klamx/convert2docx.git
 2. Crea el entorno de desarrollo
 ```bash
 cd convert2docx
-pip install pipenv
-pipenv shell
+python -m venv venv
+# or
+python3 -m venv venv
+
+source ./venv/bin/activate
+```
+
+3. Verificar que estemos en el entorno de desarrollo
+```bash
+# Este comando no debe devolver nada
+pip3 freeze
+# or
+pip3 freeze
 ```
 
 3. Instala las dependencias
 ```bash
-pipenv install -r requirements.txt
+pip install -r requirements.txt
+# or
+pip3 install -r requirements.txt
 ```
 
 4. Ejecuta la aplicación
 ```bash
-uvicorn main:app main:app --host 0.0.0.0 --port 3000
+uvicorn src.main:app --host 0.0.0.0 --port 3000
 ```
 
-5. Visualiza en tu navegador [http://localhost:3000/](http://localhost:3000/).
+5. Visualiza en tu navegador [http://localhost:3000/docs](http://localhost:3000/docs).
