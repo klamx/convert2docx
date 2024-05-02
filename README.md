@@ -77,7 +77,12 @@ uvicorn src.main:app --host 0.0.0.0 --port 3000
 
 ### Convertir un PDF a DOCX
 
-Para convertir un archivo PDF a DOCX, envía una solicitud POST a `/api/v1/pdf2docx/` con el PDF adjunto:
+#### /pdf2docx/
+- **POST**: Convierte un archivo PDF a DOCX.
 
-Parametros:
-- file: 
+Parámetros:
+- file: Archivo PDF a DOCX.
+- docxname: Nombre del archivo DOCX de salida.
+
+Respuesta:
+- Archivo DOCX convetido.
