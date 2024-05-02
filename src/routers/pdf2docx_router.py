@@ -33,9 +33,12 @@ def remove_docx(path: str):
 
 
 @pdf2docx_router.post("/")
-async def upload_and_convert(background_tasks: BackgroundTasks, docxname: str = Form(...), file: UploadFile = File()):
+async def upload_and_convert(background_tasks: BackgroundTasks, docxname: str = Form(None), file: UploadFile = File()):
     if not file.content_type == "application/pdf":
-        raise HTTPException(status_code=401, detail="El archivo debe ser un pdf")
+        raise HTTPException(status_code=409, detail="El archivo debe ser un pdf")
+    
+    if docxname == None:
+        docxname = file.filename.split(".")[0] + ".docx"
     
     file_path = await createPdf(file)
     if not os.path.exists(PDF_FOLDER / file_path):
