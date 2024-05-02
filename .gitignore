@@ -2,3 +2,4 @@
 /pdf_folder
 /.vscode
 /venv
+__pycache__/
