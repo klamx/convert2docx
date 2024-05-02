@@ -17,7 +17,6 @@ DOCX_FOLDER.mkdir(parents=True, exist_ok=True)
 
 def convert(pdf, docx):
     cv = Converter(pdf)
-    print(DOCX_FOLDER / docx)
     cv.convert(DOCX_FOLDER / docx)
     cv.close()
 
@@ -35,12 +34,14 @@ def remove_docx(path: str):
 
 @pdf2docx_router.post("/")
 async def upload_and_convert(background_tasks: BackgroundTasks, docxname: str = Form(...), file: UploadFile = File()):
+    if not file.content_type == "application/pdf":
+        raise HTTPException(status_code=401, detail="El archivo debe ser un pdf")
+    
     file_path = await createPdf(file)
     if not os.path.exists(PDF_FOLDER / file_path):
         raise HTTPException(status_code=500, detail="No se pudo crear el pdf")
 
     try:
-        print(file_path)
         convert(file_path, docxname)
         os.remove(file_path)
     except:
