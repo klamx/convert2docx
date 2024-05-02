@@ -3,6 +3,14 @@
 ## Descripción general
 La API proporciona funcionalidades para convertir archivos PDF a DOCX(word) de manera eficiente.
 
+## Requerimientos
+- Python >= 3.10
+- venv
+```bash
+# debian
+sudo apt install python3-venv
+```
+
 ## Instalacion y Configuracion
 
 - Clona el repositorio
