@@ -35,7 +35,7 @@ python3 -m venv venv
 source ./venv/bin/activate
 ```
 
-### Creación entorno virulta Windows
+### Creación entorno virtual Windows
 1. Crear el entorno virtual
 ```bash
 python -m venv venv
@@ -55,14 +55,10 @@ PS C:\> <venv>\Scripts\Activate.ps1
 ```bash
 # Este comando no debe devolver nada
 pip3 freeze
-# or
-pip3 freeze
 ```
 
 4. Instala las dependencias
 ```bash
-pip install -r requirements.txt
-# or
 pip3 install -r requirements.txt
 ```
 
